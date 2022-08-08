@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (items != null)
         {
-            items.text = string.Format("Items:  {0}", itemsValue); //string.Format(itemsValue);
+            items.text = string.Format("Items:  {0}", itemsValue);
         }
     }
 
