@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
+    public AudioClip footstepsWalk;
+    public AudioClip footstepsSprint;
+
     [SerializeField]
     private float walkSpeed = 3f;
 
@@ -27,6 +30,8 @@ public class PlayerController : MonoBehaviour {
     public Vector2 facingDirection;
 
     private Vector2 lastMovement;
+
+    private bool isSprinting = false;
 
     private void Awake() {
         if (!movementController) {
@@ -70,8 +75,20 @@ public class PlayerController : MonoBehaviour {
         float sprintInput = input.Get<float>();
         if (sprintInput > 0) {
             movementController.ChangeSpeed(sprintSpeed);
+            if (!isSprinting) {
+                audioSrc.Stop();
+                audioSrc.clip = footstepsSprint;
+                audioSrc.Play();
+                isSprinting = true;
+            }
         } else {
             movementController.ChangeSpeed(walkSpeed);
+            if (isSprinting) {
+                audioSrc.Stop();
+                audioSrc.clip = footstepsWalk;
+                audioSrc.Play();
+                isSprinting = false;
+            }
         }
     }
 
