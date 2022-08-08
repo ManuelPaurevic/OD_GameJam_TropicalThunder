@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class ButtonHandler : MonoBehaviour {
     // Start is called before the first frame update
-    public void NewGameButton() {
-        SceneManager.LoadScene("Game");
-    }
+    
 }
 
