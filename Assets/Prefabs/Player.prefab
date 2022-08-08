@@ -102,7 +102,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -140,7 +140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3
   sprintSpeed: 5
+  dodgeTime: 0.5
+  dodgeAmount: 10
   movementController: {fileID: 6515433653439152748}
+  dodging: 0
+  facingDirection: {x: 0, y: 0}
 --- !u!114 &6515433653439152748
 MonoBehaviour:
   m_ObjectHideFlags: 0
