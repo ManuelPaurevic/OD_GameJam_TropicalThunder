@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,14 +8,23 @@ public class CannonStats : MonoBehaviour {
     [SerializeField] private float speed = 2f;
     private Vector3 direction;
 
+    public void Initialize(PlayerStats _playerStats) {
+        playerStats = _playerStats;
+    }
+
+    private PlayerStats playerStats;
+
+    [SerializeField]
+    private int CoconutsToRemoveOnHit;
+
     public bool aimAtPlayer = true;
 
     private AudioSource playerHitAudioSrc;
     private AudioSource cannonFiredAudioSrc;
 
-
     // Start is called before the first frame update
     void Start() {
+
         if (!playerHitAudioSrc) {
             List<AudioSource> audios = new List<AudioSource>();
             GetComponents<AudioSource>(audios);
@@ -41,10 +49,15 @@ public class CannonStats : MonoBehaviour {
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D other) {
+
+    private void OnTriggerStay2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
-            Destroy(other.gameObject);
-            playerHitAudioSrc.Play();
+            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+            if (!playerController.dodging) {
+                playerStats.RemoveCoconuts(CoconutsToRemoveOnHit);
+                playerHitAudioSrc.Play();
+                Destroy(gameObject);
+            }
         }
     }
 }

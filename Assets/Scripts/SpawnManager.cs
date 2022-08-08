@@ -6,6 +6,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private ItemObject coconutItemObject;
 
+    [SerializeField]
+    private PlayerStats playerStats;
+
     public GameObject player;
     public GameObject cannonBalls;
     Quaternion playerPos;
@@ -40,11 +43,16 @@ public class SpawnManager : MonoBehaviour
 
             int y = Random.Range(-19, 19);
             int x = Random.Range(-19, 19);
-            Instantiate(cannonBalls, new Vector3(22,y,0), cannonBalls.transform.localRotation);
-            Instantiate(cannonBalls, new Vector3(-22,y,0), cannonBalls.transform.localRotation);
-            Instantiate(cannonBalls, new Vector3(x,22,0), cannonBalls.transform.localRotation);
-            Instantiate(cannonBalls, new Vector3(x,-22,0), cannonBalls.transform.localRotation);
+            SpawnCannonBall(new Vector3(22,y,0));
+            SpawnCannonBall(new Vector3(-22,y,0));
+            SpawnCannonBall(new Vector3(x,22,0));
+            SpawnCannonBall(new Vector3(x,-22,0));
         }
+    }
+
+    private void SpawnCannonBall(Vector2 direction) {
+        GameObject go = Instantiate(cannonBalls, direction, cannonBalls.transform.localRotation);
+        go.GetComponent<CannonStats>().Initialize(playerStats);
     }
 
     private void SpawnCoconut(Vector2 position) {

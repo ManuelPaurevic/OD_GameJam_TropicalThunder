@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4781124011912330283}
   - component: {fileID: 5252951929925711373}
   - component: {fileID: 5761560773613681836}
-  - component: {fileID: 7126379119619659676}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -79,17 +78,3 @@ MonoBehaviour:
   timeValue: 180
   timer: {fileID: 0}
   isPaused: 0
---- !u!114 &7126379119619659676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6692571241936366848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67dbddd5d10e4a34e8d73c0ebd510e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coconutItemObject: {fileID: 11400000, guid: acd50abfaec9e744fbd0bd12a9909274, type: 2}
-  spawnTimer: 0.5

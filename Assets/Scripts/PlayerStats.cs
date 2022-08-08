@@ -24,4 +24,7 @@ public class PlayerStats : MonoBehaviour
         itemsValue++;
     }
 
+    public void RemoveCoconuts(int amount) {
+        itemsValue = itemsValue - amount;
+    }
 }
