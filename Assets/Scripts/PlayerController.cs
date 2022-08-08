@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour {
 
     private Vector2 lastMovement;
 
+    private float lastSpeed;
+
     private void Awake() {
         if (!movementController) {
             movementController = GetComponent<MovementController>();
@@ -126,8 +128,10 @@ public class PlayerController : MonoBehaviour {
         float sprintInput = input.Get<float>();
         if (sprintInput > 0) {
             movementController.ChangeSpeed(sprintSpeed);
+            lastSpeed = sprintSpeed;
         } else {
             movementController.ChangeSpeed(walkSpeed);
+            lastSpeed = walkSpeed;
         }
         UpdateFootstepsAudioSpeed(sprintInput);
     }
@@ -156,7 +160,7 @@ public class PlayerController : MonoBehaviour {
             activeDodgeTime += Time.deltaTime;
             yield return null;
         }
-        movementController.ChangeSpeed(walkSpeed);
+        movementController.ChangeSpeed(lastSpeed);
         movementController.ChangeMovement(lastMovement);
         dodging = false;
     }
