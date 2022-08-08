@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,13 +21,6 @@ public class GameManager : MonoBehaviour
     {
         if(!isPaused){
             TimerRun();
-        }
-
-        //Pasues Game and UnPauses
-        if(Input.GetKeyDown(KeyCode.Escape) & !isPaused){
-            Pause();
-        }else if(Input.GetKeyDown(KeyCode.Escape) & isPaused){
-            UnPause();
         }
     }
 
@@ -64,6 +57,22 @@ public class GameManager : MonoBehaviour
         isPaused = false;
     }
 
+
+    public void onPause(){
+        Debug.Log("Pressed");
+        
+        /*
+        if(!isPaused){
+            Time.timeScale = 0f;
+            isPaused = true;
+            Debug.Log("Paused");
+        }else if(isPaused){
+            Time.timeScale = 1f;
+            isPaused = false;
+            Debug.Log("UnPause");
+        }
+        */
+    }
 
 
 
