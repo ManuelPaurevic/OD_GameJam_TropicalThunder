@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour {
     private MovementController movementController;
 
     private AudioSource footstepsAudioSrc;
-    private AudioSource pickupItemAudioSrc;
 
     public bool dodging = false;
 
@@ -40,7 +39,6 @@ public class PlayerController : MonoBehaviour {
             List<AudioSource> audios = new List<AudioSource>();
             GetComponents<AudioSource>(audios);
             footstepsAudioSrc = audios[0];
-            pickupItemAudioSrc = audios[1];
         }
     }
 
