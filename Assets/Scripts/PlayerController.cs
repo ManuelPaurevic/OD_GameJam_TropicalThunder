@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -25,8 +26,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject playerStats;
     private PlayerStats playerStatsScript;
 
-    [SerializeField]
-    private AudioSource audioSrc;
+    private AudioSource footstepsAudioSrc;
+    private AudioSource pickupItemAudioSrc;
 
     public bool dodging = false;
 
@@ -38,8 +39,11 @@ public class PlayerController : MonoBehaviour {
         if (!movementController) {
             movementController = GetComponent<MovementController>();
         }
-        if (!audioSrc) {
-            audioSrc = GetComponent<AudioSource>();
+        if (!footstepsAudioSrc) {
+            List<AudioSource> audios = new List<AudioSource>();
+            GetComponents<AudioSource>(audios);
+            footstepsAudioSrc = audios[0];
+            pickupItemAudioSrc = audios[1];
         }
     }
 
@@ -51,30 +55,30 @@ public class PlayerController : MonoBehaviour {
 
     private void UpdateFootstepsAudio(Vector2 movement) {
         if (movement.SqrMagnitude() > 0) {
-            if (!audioSrc.isPlaying) {
-                audioSrc.Play();
+            if (!footstepsAudioSrc.isPlaying) {
+                footstepsAudioSrc.Play();
             }
         } else {
-            if (audioSrc.isPlaying) {
-                audioSrc.Stop();
+            if (footstepsAudioSrc.isPlaying) {
+                footstepsAudioSrc.Stop();
             }
         }
     }
 
     private void changeFootstepsAudioClip(AudioClip clip) {
-        if (audioSrc.isPlaying) {
-            audioSrc.Stop(); // Unity doesn't change the clip immediately while playing
-            audioSrc.clip = clip;
-            audioSrc.Play();
+        if (footstepsAudioSrc.isPlaying) {
+            footstepsAudioSrc.Stop(); // Unity doesn't change the clip immediately while playing
+            footstepsAudioSrc.clip = clip;
+            footstepsAudioSrc.Play();
         } else {
-            audioSrc.clip = clip;
+            footstepsAudioSrc.clip = clip;
         }
     }
 
     private void UpdateFootstepsAudioSpeed(float sprintInput) {
-        if (sprintInput > 0 && audioSrc.clip == footstepsWalk) {
+        if (sprintInput > 0 && footstepsAudioSrc.clip == footstepsWalk) {
             changeFootstepsAudioClip(footstepsSprint);
-        } else if (sprintInput <= 0 && audioSrc.clip == footstepsSprint) {
+        } else if (sprintInput <= 0 && footstepsAudioSrc.clip == footstepsSprint) {
             changeFootstepsAudioClip(footstepsWalk);
         }
     }
@@ -135,9 +139,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Collectibles")){
+        if (other.gameObject.CompareTag("Collectibles")) {
             Destroy(other.gameObject);
             playerStatsScript.itemsValue++;
+            pickupItemAudioSrc.Play();
         }
     }
 }
