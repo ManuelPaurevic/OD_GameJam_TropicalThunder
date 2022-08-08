@@ -8,10 +8,12 @@ public class GameManager : MonoBehaviour
     public TMP_Text timer;
     public bool isPaused = false;
     public GameObject pauseMenu;
+    public GameObject endMenu;
+
+    public TMP_Text finalValue;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
             timeValue -= Time.deltaTime;
         }else{
             timeValue = 0;
+            GameOver();
         }
 
         DisplayTime(timeValue);
@@ -63,5 +66,11 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void GameOver(){
+        endMenu.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
     }
 }
