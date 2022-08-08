@@ -31,8 +31,6 @@ public class PlayerController : MonoBehaviour {
 
     private Vector2 lastMovement;
 
-    private bool isSprinting = false;
-
     private void Awake() {
         if (!movementController) {
             movementController = GetComponent<MovementController>();
@@ -59,6 +57,24 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private void changeFootstepsAudioClip(AudioClip clip) {
+        if (audioSrc.isPlaying) {
+            audioSrc.Stop(); // Unity doesn't change the clip immediately while playing
+            audioSrc.clip = clip;
+            audioSrc.Play();
+        } else {
+            audioSrc.clip = clip;
+        }
+    }
+
+    private void UpdateFootstepsAudioSpeed(float sprintInput) {
+        if (sprintInput > 0 && audioSrc.clip == footstepsWalk) {
+            changeFootstepsAudioClip(footstepsSprint);
+        } else if (sprintInput <= 0 && audioSrc.clip == footstepsSprint) {
+            changeFootstepsAudioClip(footstepsWalk);
+        }
+    }
+
     private void OnMovement(InputValue input) {
         Vector2 movement = input.Get<Vector2>();
         lastMovement = movement;
@@ -75,21 +91,10 @@ public class PlayerController : MonoBehaviour {
         float sprintInput = input.Get<float>();
         if (sprintInput > 0) {
             movementController.ChangeSpeed(sprintSpeed);
-            if (!isSprinting) {
-                audioSrc.Stop();
-                audioSrc.clip = footstepsSprint;
-                audioSrc.Play();
-                isSprinting = true;
-            }
         } else {
             movementController.ChangeSpeed(walkSpeed);
-            if (isSprinting) {
-                audioSrc.Stop();
-                audioSrc.clip = footstepsWalk;
-                audioSrc.Play();
-                isSprinting = false;
-            }
         }
+        UpdateFootstepsAudioSpeed(sprintInput);
     }
 
     private void OnDodge() {
