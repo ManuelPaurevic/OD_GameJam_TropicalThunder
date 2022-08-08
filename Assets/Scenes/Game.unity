@@ -1615,6 +1615,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: palm1
+      value: 
+      objectReference: {fileID: 4921218545318052919, guid: 13eb71ba911ce80bea13ef84909a5b46, type: 3}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: palm2
+      value: 
+      objectReference: {fileID: 837378732062863365, guid: cf158852a68ef9db994939bc72e45ac2, type: 3}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
       propertyPath: rock1
       value: 
       objectReference: {fileID: 6044573225505529042, guid: 0be5ffa58fa54b16d8c6c7d1868768fc, type: 3}
