@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public float timeValue = 90f;
     public TMP_Text timer;
     public bool isPaused = false;
+    public GameObject pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,11 +54,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void Pause(){
+        pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void UnPause(){
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
