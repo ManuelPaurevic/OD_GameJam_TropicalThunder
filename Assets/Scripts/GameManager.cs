@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     public bool isPaused = false;
     public GameObject pauseMenu;
     public GameObject endMenu;
-
-    public TMP_Text finalValue;
     // Start is called before the first frame update
     void Start()
     {
