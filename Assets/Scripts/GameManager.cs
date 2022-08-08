@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -6,7 +7,6 @@ public class GameManager : MonoBehaviour
     public float timeValue = 90f;
     public TMP_Text timer;
     public bool isPaused = false;
-
     // Start is called before the first frame update
     void Start()
     {

@@ -9,7 +9,7 @@ public class ItemPickupController : MonoBehaviour {
             ItemController item = other.GetComponent<ItemController>();
             item.DestroyObject();
             if (playerStats) {
-                playerStats.IncrementCoconuts();
+                //playerStats.IncrementCoconuts();
             }
         }
     }

@@ -3,9 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Item
-  - CannonBall
+  tags: []
+    - Item
+    - CannonBall
+    - Collectibles
   layers:
   - Default
   - TransparentFX
