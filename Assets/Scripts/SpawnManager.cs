@@ -11,10 +11,12 @@ public class SpawnManager : MonoBehaviour
     public int maxCoconuts = 30;
     bool isMaxCoconuts;
     static int numOfCoconuts = 0;
+    Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main;
         StartCoroutine(SpawnCannonBalls());
     }
 
@@ -32,10 +34,15 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnCannonBalls(){
         while(1 == 1){
-            yield return new WaitForSeconds(1);
+             
+            yield return new WaitForSeconds(5);
 
-            //Vector3 playerPos = player.transform.position;
-            Instantiate(cannonBalls, new Vector3(0,0,0), cannonBalls.transform.localRotation);
+            int y = Random.Range(-19, 19);
+            int x = Random.Range(-19, 19);
+            Instantiate(cannonBalls, new Vector3(22,y,0), cannonBalls.transform.localRotation);
+            Instantiate(cannonBalls, new Vector3(-22,y,0), cannonBalls.transform.localRotation);
+            Instantiate(cannonBalls, new Vector3(x,22,0), cannonBalls.transform.localRotation);
+            Instantiate(cannonBalls, new Vector3(x,-22,0), cannonBalls.transform.localRotation);
         }
     }
 

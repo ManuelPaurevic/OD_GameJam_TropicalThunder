@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  aimAtPlayer: 0
+  aimAtPlayer: 1
 --- !u!58 &3592490877806486177
 CircleCollider2D:
   m_ObjectHideFlags: 0
