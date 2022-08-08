@@ -12,6 +12,18 @@ public class PlayerController : MonoBehaviour {
     private float walkSpeed = 3f;
 
     [SerializeField]
+    private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    private Sprite leftSprite;
+    [SerializeField]
+    private Sprite upSprite;
+    [SerializeField]
+    private Sprite rightSprite;
+    [SerializeField]
+    private Sprite downSprite;
+
+    [SerializeField]
     private float sprintSpeed = 5f;
 
     [SerializeField]
@@ -95,6 +107,15 @@ public class PlayerController : MonoBehaviour {
         if (!dodging) {
             if (!Vector2.zero.Equals(movement)) {
                 facingDirection = movement;
+                if (Vector2.up.Equals(facingDirection)) {
+                    spriteRenderer.sprite = upSprite;
+                } else if (Vector2.right.Equals(facingDirection)) {
+                    spriteRenderer.sprite = rightSprite;
+                } else if (Vector2.down.Equals(facingDirection)) {
+                    spriteRenderer.sprite = downSprite;
+                } else if (Vector2.left.Equals(facingDirection)) {
+                    spriteRenderer.sprite = leftSprite;
+                }
             }
             movementController.ChangeMovement(movement);
         }
