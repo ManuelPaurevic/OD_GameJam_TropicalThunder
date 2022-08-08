@@ -5,9 +5,6 @@ public class SpawnManager : MonoBehaviour {
     [SerializeField]
     private ItemObject coconutItemObject;
 
-    [SerializeField]
-    private PlayerStats playerStats;
-
     public GameObject player;
     public GameObject cannonBalls;
     public GameObject rock1;
@@ -63,7 +60,7 @@ public class SpawnManager : MonoBehaviour {
 
     private void SpawnCannonBall(Vector2 direction) {
         GameObject go = Instantiate(cannonBalls, direction, cannonBalls.transform.localRotation);
-        go.GetComponent<CannonStats>().Initialize(playerStats);
+        go.GetComponent<CannonStats>();
     }
 
     private void SpawnCoconut(Vector2 position) {

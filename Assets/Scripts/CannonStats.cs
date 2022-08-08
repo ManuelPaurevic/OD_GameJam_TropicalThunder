@@ -8,27 +8,19 @@ public class CannonStats : MonoBehaviour {
     [SerializeField] private float speed = 2f;
     private Vector3 direction;
 
-    public void Initialize(PlayerStats _playerStats) {
-        playerStats = _playerStats;
-    }
-
-    private PlayerStats playerStats;
-
     [SerializeField]
     private int CoconutsToRemoveOnHit;
 
     public bool aimAtPlayer = true;
 
-    private AudioSource playerHitAudioSrc;
     private AudioSource cannonFiredAudioSrc;
 
     // Start is called before the first frame update
     void Start() {
 
-        if (!playerHitAudioSrc) {
+        if (!cannonFiredAudioSrc) {
             List<AudioSource> audios = new List<AudioSource>();
             GetComponents<AudioSource>(audios);
-            playerHitAudioSrc = audios[0];
             cannonFiredAudioSrc = audios[1];
             cannonFiredAudioSrc.Play();
         }
@@ -54,8 +46,7 @@ public class CannonStats : MonoBehaviour {
         if (other.gameObject.CompareTag("Player")) {
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
             if (!playerController.dodging) {
-                playerStats.RemoveCoconuts(CoconutsToRemoveOnHit);
-                playerHitAudioSrc.Play();
+                playerController.Hit(CoconutsToRemoveOnHit);
                 Destroy(gameObject);
             }
         }

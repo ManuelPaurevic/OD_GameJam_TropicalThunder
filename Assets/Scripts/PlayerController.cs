@@ -23,7 +23,14 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private MovementController movementController;
 
+    [SerializeField]
+    private AudioSource playerHitAudioSrc;
+
+    [SerializeField]
     private AudioSource footstepsAudioSrc;
+
+    [SerializeField]
+    PlayerStats playerStats;
 
     public bool dodging = false;
 
@@ -39,6 +46,11 @@ public class PlayerController : MonoBehaviour {
             List<AudioSource> audios = new List<AudioSource>();
             GetComponents<AudioSource>(audios);
             footstepsAudioSrc = audios[0];
+        }
+        if (!playerHitAudioSrc) {
+            List<AudioSource> audios = new List<AudioSource>();
+            GetComponents<AudioSource>(audios);
+            footstepsAudioSrc = audios[1];
         }
     }
 
@@ -130,5 +142,10 @@ public class PlayerController : MonoBehaviour {
 
     public Vector2 GetPosition() {
         return transform.position;
+    }
+
+    public void Hit(int hitAmount) {
+        playerHitAudioSrc.Play();
+        playerStats.RemoveCoconuts(hitAmount);
     }
 }
