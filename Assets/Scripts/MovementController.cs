@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class MovementController : MonoBehaviour
-{
+public class MovementController : MonoBehaviour {
     private Vector2 movement;
 
     [SerializeField]
@@ -10,15 +9,13 @@ public class MovementController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
 
-    private void Awake()
-    {
+    private void Awake() {
         if (!rb) {
             rb = GetComponent<Rigidbody2D>();
         }
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         // Stops movement during potential pausing of time
         if (Time.timeScale == 1f) {
             UpdateMovement();
