@@ -41,4 +41,10 @@ public class PlayerController : MonoBehaviour
     public Vector2 GetPosition() {
         return transform.position;
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.CompareTag("Collectibles")){
+            Destroy(other.gameObject);
+        }
+    }
 }
