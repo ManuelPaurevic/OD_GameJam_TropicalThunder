@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
     public int healthValue = 100;
     public int itemsValue = 0;
     public TMP_Text health;
+    public TMP_Text finalValue;
     public TMP_Text items;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class PlayerStats : MonoBehaviour
     {
         health.text = "Health: "+ healthValue;
         items.text =  "Coconuts: " + itemsValue;
+        finalValue.text = "" + itemsValue;
     }
 
     public void IncrementCoconuts() {
