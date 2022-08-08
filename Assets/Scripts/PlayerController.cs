@@ -1,3 +1,5 @@
+using System.Collections;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +12,14 @@ public class PlayerController : MonoBehaviour
     private float sprintSpeed = 5f;
 
     [SerializeField]
+    private float dodgeTime = 0.5f;
+
+    [SerializeField]
     private MovementController movementController;
+
+    public bool dodging = false;
+
+    public Vector2 facingDirection;
 
     private void Awake()
     {
@@ -25,8 +34,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnMovement(InputValue input) {
-        Vector2 movement = input.Get<Vector2>();
-        movementController.ChangeMovement(movement);
+        facingDirection = input.Get<Vector2>();
+        if (!dodging) {
+            movementController.ChangeMovement(facingDirection);
+        }
     }
 
     private void OnSprint(InputValue input) {
@@ -36,6 +47,20 @@ public class PlayerController : MonoBehaviour
         } else {
             movementController.ChangeSpeed(walkSpeed);
         }
+    }
+
+    private void OnDodge() {
+        StartCoroutine(PerformDodge(facingDirection));
+    }
+
+    private IEnumerator PerformDodge(Vector2 direction) {
+        dodging = true;
+        float activeDodgeTime = 0;
+        while(activeDodgeTime <= dodgeTime) {
+            activeDodgeTime += Time.deltaTime;
+            yield return null;
+        }
+        dodging = false;
     }
 
     public Vector2 GetPosition() {
