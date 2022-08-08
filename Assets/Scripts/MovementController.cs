@@ -9,15 +9,9 @@ public class MovementController : MonoBehaviour {
     [SerializeField]
     private Rigidbody2D rb;
 
-    [SerializeField]
-    private AudioSource audioSrc;
-
     private void Awake() {
         if (!rb) {
             rb = GetComponent<Rigidbody2D>();
-        }
-        if (!audioSrc) {
-            audioSrc = GetComponent<AudioSource>();
         }
     }
 
@@ -28,21 +22,8 @@ public class MovementController : MonoBehaviour {
         }
     }
 
-    private void UpdateFootstepsAudio() {
-        if (movement.SqrMagnitude() > 0) {
-            if (!audioSrc.isPlaying) {
-                audioSrc.Play();
-            }
-        } else {
-            if (audioSrc.isPlaying) {
-                audioSrc.Stop();
-            }
-        }
-    }
-
     private void UpdateMovement() {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
-        UpdateFootstepsAudio();
     }
 
     public void ChangeSpeed(float newSpeed) {

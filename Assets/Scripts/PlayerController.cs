@@ -3,8 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float walkSpeed = 3f;
 
@@ -20,22 +19,39 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private MovementController movementController;
 
+    [SerializeField]
+    private AudioSource audioSrc;
+
     public bool dodging = false;
 
     public Vector2 facingDirection;
 
     private Vector2 lastMovement;
 
-    private void Awake()
-    {
+    private void Awake() {
         if (!movementController) {
             movementController = GetComponent<MovementController>();
+        }
+        if (!audioSrc) {
+            audioSrc = GetComponent<AudioSource>();
         }
     }
 
     private void Start() {
         movementController.ChangeMovement(Vector2.zero);
         movementController.ChangeSpeed(walkSpeed);
+    }
+
+    private void UpdateFootstepsAudio(Vector2 movement) {
+        if (movement.SqrMagnitude() > 0) {
+            if (!audioSrc.isPlaying) {
+                audioSrc.Play();
+            }
+        } else {
+            if (audioSrc.isPlaying) {
+                audioSrc.Stop();
+            }
+        }
     }
 
     private void OnMovement(InputValue input) {
@@ -47,6 +63,7 @@ public class PlayerController : MonoBehaviour
             }
             movementController.ChangeMovement(movement);
         }
+        UpdateFootstepsAudio(movement);
     }
 
     private void OnSprint(InputValue input) {
@@ -68,7 +85,7 @@ public class PlayerController : MonoBehaviour
         dodging = true;
         float activeDodgeTime = 0;
         movementController.ChangeMovement(direction);
-        while(activeDodgeTime <= dodgeTime) {
+        while (activeDodgeTime <= dodgeTime) {
             float dodgePercent;
             if (activeDodgeTime == 0) {
                 dodgePercent = 0;
