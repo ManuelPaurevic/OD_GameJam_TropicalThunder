@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class MovementController : MonoBehaviour
-{
+public class MovementController : MonoBehaviour {
     private Vector2 movement;
 
     [SerializeField]
@@ -10,23 +9,40 @@ public class MovementController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
 
-    private void Awake()
-    {
+    [SerializeField]
+    private AudioSource audioSrc;
+
+    private void Awake() {
         if (!rb) {
             rb = GetComponent<Rigidbody2D>();
         }
+        if (!audioSrc) {
+            audioSrc = GetComponent<AudioSource>();
+        }
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         // Stops movement during potential pausing of time
         if (Time.timeScale == 1f) {
             UpdateMovement();
         }
     }
 
+    private void UpdateFootstepsAudio() {
+        if (movement.SqrMagnitude() > 0) {
+            if (!audioSrc.isPlaying) {
+                audioSrc.Play();
+            }
+        } else {
+            if (audioSrc.isPlaying) {
+                audioSrc.Stop();
+            }
+        }
+    }
+
     private void UpdateMovement() {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        UpdateFootstepsAudio();
     }
 
     public void ChangeSpeed(float newSpeed) {
