@@ -1438,6 +1438,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: rock1
+      value: 
+      objectReference: {fileID: 6044573225505529042, guid: 0be5ffa58fa54b16d8c6c7d1868768fc, type: 3}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: rock2
+      value: 
+      objectReference: {fileID: 2559073908220005417, guid: 6684e9c30553d02d080ce2b90a208986, type: 3}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: rock3
+      value: 
+      objectReference: {fileID: 5521547585460549661, guid: 024411d77234a6cc990137e367d4c5b0, type: 3}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: rocks
+      value: 
+      objectReference: {fileID: 6044573225505529042, guid: 0be5ffa58fa54b16d8c6c7d1868768fc, type: 3}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1257754982}
