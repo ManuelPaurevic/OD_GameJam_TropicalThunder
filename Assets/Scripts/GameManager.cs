@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public float timeValue = 90f;
     public TMP_Text timer;
+    private bool isPaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       TimerRun();
+        if(!isPaused){
+            TimerRun();
+        }
+
+        //Pasues Game and UnPauses
+        if(Input.GetKeyDown(KeyCode.Escape) & !isPaused){
+            Pause();
+        }else if(Input.GetKeyDown(KeyCode.Escape) & isPaused){
+            UnPause();
+        }
     }
 
     void TimerRun(){
@@ -42,6 +52,16 @@ public class GameManager : MonoBehaviour
         float seconds = Mathf.FloorToInt(time % 60);
 
         timer.text = string.Format("{0:0}:{1:00}", minutes, seconds);
+    }
+
+    public void Pause(){
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void UnPause(){
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 
 
