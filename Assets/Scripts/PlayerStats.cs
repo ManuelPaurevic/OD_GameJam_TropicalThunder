@@ -16,29 +16,16 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateItems();
-        UpdateHealth();
+        health.text = "Health: "+ healthValue;
+        items.text =  "Coconuts: " + itemsValue;
     }
 
-    void UpdateHealth()
-    {
-        if (health != null)
-        {
-            health.text = string.Format("Health: {0}", healthValue);
-        }
-    }
 
-    void UpdateItems()
-    {
-        if (items != null)
-        {
-            items.text = string.Format("Coconuts:  {0}", itemsValue);
-        }
-    }
-
+    /*
     public void IncrementCoconuts() {
         itemsValue++;
         UpdateItems();
     }
+    */
 
 }

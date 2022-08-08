@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private MovementController movementController;
 
+    public GameObject playerStats;
+    private PlayerStats playerStatsScript;
+
     [SerializeField]
     private AudioSource audioSrc;
 
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Start() {
+        playerStatsScript = playerStats.GetComponent<PlayerStats>();
         movementController.ChangeMovement(Vector2.zero);
         movementController.ChangeSpeed(walkSpeed);
     }
@@ -128,6 +132,7 @@ public class PlayerController : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Collectibles")){
             Destroy(other.gameObject);
+            playerStatsScript.itemsValue++;
         }
     }
 }
