@@ -1442,6 +1442,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1257754982}
     - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: maxCoconuts
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 1890164837}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
       propertyPath: coconutItemObject
       value: 
       objectReference: {fileID: 11400000, guid: acd50abfaec9e744fbd0bd12a9909274, type: 2}
