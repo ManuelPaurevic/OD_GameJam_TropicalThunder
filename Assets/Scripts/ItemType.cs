@@ -1,4 +1,5 @@
 [System.Serializable]
 public enum ItemType {
-  Coconut
+  Coconut,
+  Banana
 }

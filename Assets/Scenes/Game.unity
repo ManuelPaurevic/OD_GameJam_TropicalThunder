@@ -1646,6 +1646,26 @@ PrefabInstance:
       propertyPath: coconutItemObject
       value: 
       objectReference: {fileID: 11400000, guid: acd50abfaec9e744fbd0bd12a9909274, type: 2}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: ItemSpawnPool.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: ItemSpawnPool.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: acd50abfaec9e744fbd0bd12a9909274, type: 2}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: ItemSpawnPool.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 10c3c5a7526e70d4893ab5965b4894cc, type: 2}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: ItemSpawnPool.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: acd50abfaec9e744fbd0bd12a9909274, type: 2}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: ItemSpawnPool.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: acd50abfaec9e744fbd0bd12a9909274, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
 --- !u!1001 &1846546836

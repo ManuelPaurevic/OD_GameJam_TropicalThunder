@@ -146,6 +146,6 @@ public class PlayerController : MonoBehaviour {
 
     public void Hit(int hitAmount) {
         playerHitAudioSrc.Play();
-        playerStats.RemoveCoconuts(hitAmount);
+        playerStats.RemoveScore(hitAmount);
     }
 }

@@ -58,4 +58,8 @@ public class ItemController : MonoBehaviour
     public void DestroyObject() {
         Destroy(gameObject);
     }
+
+    public int getScoreAmount() {
+        return item.ScoreAmount;
+    }
 }

@@ -44,7 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f905d7ccba67e64c87eed62ee515ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemSpawnPool:
+  - {fileID: 11400000, guid: acd50abfaec9e744fbd0bd12a9909274, type: 2}
   player: {fileID: 0}
   cannonBalls: {fileID: 2082815422791744257, guid: ca89acc8c31794f4ca93007c6d247aec, type: 3}
-  coconuts: {fileID: 6201390167734915293, guid: 8219d9d6b86b37f44b89dac6e61a0e72, type: 3}
-  maxCoconuts: 40
+  rock1: {fileID: 6044573225505529042, guid: 0be5ffa58fa54b16d8c6c7d1868768fc, type: 3}
+  rock2: {fileID: 2559073908220005417, guid: 6684e9c30553d02d080ce2b90a208986, type: 3}
+  rock3: {fileID: 5521547585460549661, guid: 024411d77234a6cc990137e367d4c5b0, type: 3}
+  maxItems: 60

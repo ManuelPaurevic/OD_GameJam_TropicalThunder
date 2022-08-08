@@ -8,8 +8,11 @@ public class ItemObject : ScriptableObject {
     protected Sprite sprite;
     [SerializeField]
     protected GameObject itemPrefab;
+    [SerializeField]
+    protected int scoreAmount;
 
     public ItemType ItemType => type;
     public Sprite Sprite => sprite;
     public GameObject ItemPrefab => itemPrefab;
+    public int ScoreAmount => scoreAmount;
 }

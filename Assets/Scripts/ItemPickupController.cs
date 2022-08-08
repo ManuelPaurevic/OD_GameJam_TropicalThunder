@@ -20,7 +20,7 @@ public class ItemPickupController : MonoBehaviour {
         if (other.tag == EntityTags.Item) {
             ItemController item = other.GetComponent<ItemController>();
             if (Vector2.Distance(transform.position, other.transform.position) < 0.5f) {
-                playerStats.IncrementCoconuts();
+                playerStats.IncrementScore(item.getScoreAmount());
                 pickupItemAudioSrc.Play();
                 item.DestroyObject();
             }

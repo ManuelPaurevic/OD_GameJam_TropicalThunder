@@ -1,9 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour {
     [SerializeField]
-    private ItemObject coconutItemObject;
+    private List<ItemObject> ItemSpawnPool;
 
     public GameObject player;
     public GameObject cannonBalls;
@@ -11,9 +12,9 @@ public class SpawnManager : MonoBehaviour {
     public GameObject rock2;
     public GameObject rock3;
     Quaternion playerPos;
-    public int maxCoconuts = 30;
-    bool isMaxCoconuts;
-    static int numOfCoconuts = 0;
+    public int maxItems = 30;
+    bool isMaxItems;
+    static int numOfItems = 0;
     Camera cam;
 
     // Start is called before the first frame update
@@ -25,11 +26,11 @@ public class SpawnManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (numOfCoconuts < maxCoconuts) {
+        if (numOfItems < maxItems) {
             int x = Random.Range(-19, 19);
             int y = Random.Range(-19, 19);
-            SpawnCoconut(new Vector2(x, y));
-            numOfCoconuts++;
+            SpawnItem(new Vector2(x, y));
+            numOfItems++;
         }
     }
 
@@ -63,9 +64,11 @@ public class SpawnManager : MonoBehaviour {
         go.GetComponent<CannonStats>();
     }
 
-    private void SpawnCoconut(Vector2 position) {
-        GameObject go = Instantiate(coconutItemObject.ItemPrefab, position, Quaternion.identity);
-        go.GetComponent<ItemController>().Initialize(coconutItemObject);
+    private void SpawnItem(Vector2 position) {
+        int itemPoolIndex =  Random.Range(0, ItemSpawnPool.Count);
+        ItemObject item = ItemSpawnPool[itemPoolIndex];
+        GameObject go = Instantiate(item.ItemPrefab, position, Quaternion.identity);
+        go.GetComponent<ItemController>().Initialize(item);
     }
 
 }

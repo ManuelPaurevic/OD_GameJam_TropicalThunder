@@ -15,14 +15,14 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        items.text =  "Coconuts: " + itemsValue;
+        items.text =  "Score: " + itemsValue;
     }
 
-    public void IncrementCoconuts() {
-        itemsValue++;
+    public void IncrementScore(int amount) {
+        itemsValue = itemsValue + amount;
     }
 
-    public void RemoveCoconuts(int amount) {
+    public void RemoveScore(int amount) {
         itemsValue = itemsValue - amount;
     }
 }
