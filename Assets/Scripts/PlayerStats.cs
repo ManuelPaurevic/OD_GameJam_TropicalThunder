@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class PlayerStats : MonoBehaviour
@@ -35,8 +32,13 @@ public class PlayerStats : MonoBehaviour
     {
         if (items != null)
         {
-            items.text = string.Format("Items:  {0}", itemsValue);
+            items.text = string.Format("Coconuts:  {0}", itemsValue);
         }
+    }
+
+    public void IncrementCoconuts() {
+        itemsValue++;
+        UpdateItems();
     }
 
 }
