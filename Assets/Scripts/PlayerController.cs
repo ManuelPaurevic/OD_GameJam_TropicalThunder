@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     private float dodgeTime = 0.5f;
 
     [SerializeField]
+    private float dodgeAmount = 10f;
+
+    [SerializeField]
     private MovementController movementController;
 
     public bool dodging = false;
@@ -34,9 +37,12 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnMovement(InputValue input) {
-        facingDirection = input.Get<Vector2>();
+        Vector2 movement = input.Get<Vector2>();
+        if (!Vector2.zero.Equals(movement)) {
+            facingDirection = movement;
+        }
         if (!dodging) {
-            movementController.ChangeMovement(facingDirection);
+            movementController.ChangeMovement(movement);
         }
     }
 
@@ -56,10 +62,23 @@ public class PlayerController : MonoBehaviour
     private IEnumerator PerformDodge(Vector2 direction) {
         dodging = true;
         float activeDodgeTime = 0;
+        movementController.ChangeMovement(direction);
         while(activeDodgeTime <= dodgeTime) {
+            float dodgePercent;
+            if (activeDodgeTime == 0) {
+                dodgePercent = 0;
+            } else if (dodgeTime == activeDodgeTime) {
+                dodgePercent = 1f;
+            } else {
+                dodgePercent = activeDodgeTime / dodgeTime;
+            }
+            float dodgeMovement = Mathf.Lerp(1f, 0f, dodgePercent);
+            movementController.ChangeSpeed(dodgeMovement * dodgeAmount);
             activeDodgeTime += Time.deltaTime;
             yield return null;
         }
+        movementController.ChangeSpeed(walkSpeed);
+        movementController.ChangeMovement(Vector2.zero);
         dodging = false;
     }
 
