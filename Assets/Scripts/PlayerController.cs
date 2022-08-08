@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 facingDirection;
 
+    private Vector2 lastMovement;
+
     private void Awake()
     {
         if (!movementController) {
@@ -38,10 +40,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnMovement(InputValue input) {
         Vector2 movement = input.Get<Vector2>();
-        if (!Vector2.zero.Equals(movement)) {
-            facingDirection = movement;
-        }
+        lastMovement = movement;
         if (!dodging) {
+            if (!Vector2.zero.Equals(movement)) {
+                facingDirection = movement;
+            }
             movementController.ChangeMovement(movement);
         }
     }
@@ -56,7 +59,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnDodge() {
-        StartCoroutine(PerformDodge(facingDirection));
+        if (!Vector2.zero.Equals(facingDirection)) {
+            StartCoroutine(PerformDodge(facingDirection));
+        }
     }
 
     private IEnumerator PerformDodge(Vector2 direction) {
@@ -72,13 +77,13 @@ public class PlayerController : MonoBehaviour
             } else {
                 dodgePercent = activeDodgeTime / dodgeTime;
             }
-            float dodgeMovement = Mathf.Lerp(1f, 0f, dodgePercent);
-            movementController.ChangeSpeed(dodgeMovement * dodgeAmount);
+            float dodgeSpeed = Mathf.Lerp(dodgeAmount, walkSpeed, dodgePercent);
+            movementController.ChangeSpeed(dodgeSpeed);
             activeDodgeTime += Time.deltaTime;
             yield return null;
         }
         movementController.ChangeSpeed(walkSpeed);
-        movementController.ChangeMovement(Vector2.zero);
+        movementController.ChangeMovement(lastMovement);
         dodging = false;
     }
 
