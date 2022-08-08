@@ -11,6 +11,8 @@ public class SpawnManager : MonoBehaviour {
     public GameObject rock1;
     public GameObject rock2;
     public GameObject rock3;
+    public GameObject palm1;
+    public GameObject palm2;
     Quaternion playerPos;
     public int maxItems = 30;
     bool isMaxItems;
@@ -20,7 +22,7 @@ public class SpawnManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         cam = Camera.main;
-        SpawnRocks(15);
+        SpawnObstacles(15);
         StartCoroutine(SpawnCannonBalls());
     }
 
@@ -34,12 +36,12 @@ public class SpawnManager : MonoBehaviour {
         }
     }
 
-    private void SpawnRocks(int count) {
+    private void SpawnObstacles(int count) {
         for (int i = 0; i < count; i++) {
             int x = Random.Range(-19, 19);
             int y = Random.Range(-19, 19);
-            int rockType = Random.Range(0, 3);
-            GameObject rock = rockType == 0 ? rock1 : rockType == 1 ? rock2 : rock3;
+            int rockType = Random.Range(0, 5);
+            GameObject rock = rockType == 0 ? rock1 : rockType == 1 ? rock2 : rockType == 2 ? rock3 : rockType == 3 ? palm1 : palm2;
             Instantiate(rock, new Vector3(x, y, 0), rock.transform.localRotation);
         }
     }
