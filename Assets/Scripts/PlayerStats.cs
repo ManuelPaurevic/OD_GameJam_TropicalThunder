@@ -25,12 +25,18 @@ public class PlayerStats : MonoBehaviour
 
     void UpdateHealth()
     {
-        health.text = string.Format("Health: {0}", healthValue);
+        if (health != null)
+        {
+            health.text = string.Format("Health: {0}", healthValue);
+        }
     }
 
     void UpdateItems()
     {
-        items.text = string.Format("Items:  {0}", itemsValue); //string.Format(itemsValue);
+        if (items != null)
+        {
+            items.text = string.Format("Items:  {0}", itemsValue); //string.Format(itemsValue);
+        }
     }
 
 }
