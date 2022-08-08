@@ -232,6 +232,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4902604849845936433, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 1890164837}
     - target: {fileID: 6515433653439152736, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -607,7 +611,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.42896497
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1018,6 +1022,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1257754982}
+    - target: {fileID: 8432528618191425654, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
+      propertyPath: coconutItemObject
+      value: 
+      objectReference: {fileID: 11400000, guid: acd50abfaec9e744fbd0bd12a9909274, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6013ca4bfd26de54c85bdf1cbbe548af, type: 3}
 --- !u!1 &1889013839
@@ -1114,6 +1126,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6194973943664165933, guid: ee1232444772eca4fa4f6b258f91d23a, type: 3}
   m_PrefabInstance: {fileID: 6194973943922615369}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1890164837 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4746659363479233033, guid: ee1232444772eca4fa4f6b258f91d23a, type: 3}
+  m_PrefabInstance: {fileID: 6194973943922615369}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890164835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701103ec58b494cc4b529a73557c54dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1929519768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,7 +1357,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7126379119619659676, guid: 30199e225adcd084f969142836e410ba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 30199e225adcd084f969142836e410ba, type: 3}
 --- !u!1001 &4059870162044015354
 PrefabInstance:

@@ -1,12 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField]
+    private ItemObject coconutItemObject;
+
     public GameObject player;
     public GameObject cannonBalls;
-    public GameObject coconuts;
     Quaternion playerPos;
     public int maxCoconuts = 30;
     bool isMaxCoconuts;
@@ -26,7 +27,7 @@ public class SpawnManager : MonoBehaviour
         if(numOfCoconuts < maxCoconuts){
             int x = Random.Range(-19, 19);
             int y = Random.Range(-19, 19);
-            Instantiate(coconuts, new Vector3(x,y,0), cannonBalls.transform.localRotation);
+            SpawnCoconut(new Vector2(x,y));
             numOfCoconuts++;
         }
     }
@@ -44,6 +45,11 @@ public class SpawnManager : MonoBehaviour
             Instantiate(cannonBalls, new Vector3(x,22,0), cannonBalls.transform.localRotation);
             Instantiate(cannonBalls, new Vector3(x,-22,0), cannonBalls.transform.localRotation);
         }
+    }
+
+    private void SpawnCoconut(Vector2 position) {
+        GameObject go = Instantiate(coconutItemObject.ItemPrefab, position, Quaternion.identity);
+        go.GetComponent<ItemController>().Initialize(coconutItemObject);
     }
 
 }

@@ -20,12 +20,8 @@ public class PlayerStats : MonoBehaviour
         items.text =  "Coconuts: " + itemsValue;
     }
 
-
-    /*
     public void IncrementCoconuts() {
         itemsValue++;
-        UpdateItems();
     }
-    */
 
 }

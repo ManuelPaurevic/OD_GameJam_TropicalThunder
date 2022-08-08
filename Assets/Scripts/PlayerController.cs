@@ -23,9 +23,6 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private MovementController movementController;
 
-    public GameObject playerStats;
-    private PlayerStats playerStatsScript;
-
     private AudioSource footstepsAudioSrc;
     private AudioSource pickupItemAudioSrc;
 
@@ -48,7 +45,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Start() {
-        playerStatsScript = playerStats.GetComponent<PlayerStats>();
         movementController.ChangeMovement(Vector2.zero);
         movementController.ChangeSpeed(walkSpeed);
     }
@@ -136,13 +132,5 @@ public class PlayerController : MonoBehaviour {
 
     public Vector2 GetPosition() {
         return transform.position;
-    }
-
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Collectibles")) {
-            Destroy(other.gameObject);
-            playerStatsScript.itemsValue++;
-            pickupItemAudioSrc.Play();
-        }
     }
 }
