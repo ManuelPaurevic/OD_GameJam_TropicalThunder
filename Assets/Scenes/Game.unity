@@ -234,6 +234,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3168522450133715255, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
+      propertyPath: m_Radius
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 4902604849845936433, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
       propertyPath: playerStats
       value: 
@@ -246,33 +250,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6515433653439152737, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
-      propertyPath: m_Size.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6515433653439152737, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
-      propertyPath: m_Size.y
-      value: 0.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 6515433653439152737, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6515433653439152737, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6515433653439152746, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6515433653439152746, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 6515433653439152746, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 6515433653439152746, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -367,13 +355,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 280806aabf7c4034eb924f57a4ba1cd5, type: 3}
     - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
+      propertyPath: upSpriteLFoot
+      value: 
+      objectReference: {fileID: 21300000, guid: e074427b476a901fc897b7bbc94690bc, type: 3}
+    - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
+      propertyPath: upSpriteRFoot
+      value: 
+      objectReference: {fileID: 21300000, guid: 4c6508e56616602e3b1d3d281b86e720, type: 3}
+    - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 1257755015}
     - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
+      propertyPath: downSpriteLFoot
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ea4b5cfbeaa471c1aa5ad1a97c5fce1, type: 3}
+    - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
+      propertyPath: downSpriteRFoot
+      value: 
+      objectReference: {fileID: 21300000, guid: 24955e8374f82ac50abdcdf2676649b4, type: 3}
+    - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
       propertyPath: footstepsSprint
       value: 
       objectReference: {fileID: 8300000, guid: f1857be76348e8146803908b7c4984a0, type: 3}
+    - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
+      propertyPath: leftSpriteLFoot
+      value: 
+      objectReference: {fileID: 21300000, guid: f0909a95acd69311693b7f8d8e9d8b03, type: 3}
+    - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
+      propertyPath: leftSpriteRFoot
+      value: 
+      objectReference: {fileID: 21300000, guid: 18f48412f5125cbf2b05dce9addac486, type: 3}
+    - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
+      propertyPath: rightSpriteLFoot
+      value: 
+      objectReference: {fileID: 21300000, guid: 513db1b00f4c609d2a15cbd227b03902, type: 3}
+    - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
+      propertyPath: rightSpriteRFoot
+      value: 
+      objectReference: {fileID: 21300000, guid: e07f5c5f20c8b0a10a9f3f5d730b38d6, type: 3}
     - target: {fileID: 6515433653439152751, guid: 4f02b900ad56b5a429c940c2676bd4c8, type: 3}
       propertyPath: playerHitAudioSrc
       value: 
