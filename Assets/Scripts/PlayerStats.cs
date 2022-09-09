@@ -3,7 +3,7 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int itemsValue = 0;
+    static public int itemsValue = 0;
     public TMP_Text items;
     
     // Start is called before the first frame update

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject endMenu;
 
     public TMP_Text finalValue;
+    public int ScoreValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,8 +70,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver(){
+        ScoreValue = PlayerStats.itemsValue;
         endMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        finalValue.text = ScoreValue.ToString();
     }
 }
