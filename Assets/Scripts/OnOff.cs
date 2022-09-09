@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.UI;
-using TMPro;
 
 public class OnOff : MonoBehaviour
 {
@@ -18,6 +16,4 @@ public class OnOff : MonoBehaviour
             flag = true;
         }
     }
-
-
 }
